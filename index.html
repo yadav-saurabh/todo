@@ -14,19 +14,19 @@
 
 <body>
 
-  <h1 class="text-center">An todo app</h1>
+  <div class="wrapper">
 
-  <div class="wrapper" >
-    <ul class="todo-list" id="todo">
-      <li>
-        <div> item</div>
-      </li>
-    </ul>
-    <div>
-      <input type="text" name="addTodo" id="addTodo">
-      <button onclick="addTodo()"> + </button>
+    <div class="todo-app">
+      <h1 class="text-center">Todos</h1>
+      <div>
+        <input type="text" placeholder="add Todo" id="addTodoInput">
+        <button onclick="addTodo()" class="add-todo"> + </button>
+      </div>
+      <ul class="todo-list" id="todo">
+      </ul>
     </div>
   </div>
+
 
   <!-- scripts -->
   <script src="./dist/index.js"></script>
