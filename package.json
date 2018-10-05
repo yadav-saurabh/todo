@@ -7,7 +7,7 @@
     "sass": " node-sass ./styles/style.scss ./dist/style.css",
     "tsc": "tsc --outDir ./dist/ ./script/*.ts",
     "sass:watch": " node-sass ./styles/style.scss ./dist/style.css  --watch",
-    "tsc:watch": "tsc --outDir ./dist/ ./script/*.ts  --target ES6 --watch",
+    "tsc:watch": "tsc --outDir ./dist/ ./script/*.ts  --target es6 --watch",
     "live": "browser-sync start --server  --files 'index.html' './dist' ",
     "dev": "concurrently 'npm:sass'  'npm:sass:watch' 'npm:tsc:watch' 'npm:live'",
     "build": "concurrently 'npm:sass' 'npm:tsc'" 
