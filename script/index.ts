@@ -1,14 +1,11 @@
-import Actions from "./actions.js";
 import Common from "./common.js";
-import AddTodos from "./addTodos.js";
+import Todos from "./todos.js";
 
-const actions = new Actions();
-const addTodos = new AddTodos();
+const todos = new Todos();
 const common = new Common();
 
 class TodoAPP {
   // const storage = new Storage();
-
 
   constructor() {
     this.initTodo();
@@ -18,28 +15,16 @@ class TodoAPP {
    * initilize the todo app
    */
   initTodo = () => {
-    const todos = common.getTodos(); 
-    if (!todos) {
+    let todoData: Array<object> = common.getTodos();
+    if (!todoData) {
       common.updateTodos(common.initTodo);
+      common.updateUID(0);
+      todoData = common.getTodos();
     }
-    todos.forEach(element => {
-      common.todoElement.appendChild(addTodos.add({id:1, text:'abc'}));  
+    console.log(todoData);
+    todoData.forEach(element => {
+      common.todoElement.appendChild(todos.createTodo(element));
     });
   };
-
-
-  /**
-   * invoking intTodo for initialization
-   */
-  // initTodo();
-
-  // const editTodo = e => {
-  //   const p = document.getElementById("tp");
-  //   p.classList.remove("editing");
-  //   console.log(e);
-  //   console.log("blur");
-  //   // changeTodoStatus;
-  // };
-
 }
-const tp = new TodoAPP();
+const app = new TodoAPP();
