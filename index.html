@@ -22,6 +22,11 @@
         <input type="text" placeholder="add Todo" id="addTodoInput">
         <button onclick="addTodo()" class="add-todo"> + </button>
       </div>
+      <div>
+        <button click="filterTodo('all')">All</button>
+        <button click="filterTodo('completed')">Completed</button>
+        <button click="filterTodo('pending')">Pending</button>
+      </div>
       <ul class="todo-list" id="todo">
       </ul>
     </div>
