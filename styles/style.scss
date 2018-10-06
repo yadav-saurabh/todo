@@ -1,7 +1,6 @@
 @import "variables";
 @import "global";
 
-
 /** applying border box to all elements **/
 
 * {
@@ -86,7 +85,7 @@ body {
 }
 
 .completed {
-  .text-wrapper{
+  .text-wrapper {
     text-decoration: line-through;
     color: lighten($black, 30%);
   }
@@ -162,7 +161,7 @@ body {
     font-weight: bold;
     cursor: pointer;
   }
-  
+
   & input {
     width: 100%;
     margin-bottom: 2rem;
@@ -183,6 +182,25 @@ body {
   .wrapper {
     & > * {
       width: $wrapper-width-sm;
+    }
+  }
+  .add-todo {
+    input {
+      margin-bottom: 1rem;
+    }
+    #add-todo-head-input {
+      width: 100%;
+    }
+    #add-todo-text-input {
+      width: 75%;
+    }
+  }
+  .text-wrapper {
+    width: 55%;
+  }
+  .modal-content {
+    .model-btn button {
+      width: 50%;
     }
   }
 }
