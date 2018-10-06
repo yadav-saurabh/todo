@@ -197,4 +197,14 @@ body {
 /* media query for mobile screen */
 @media only screen and (max-width: 768px) {
   .wrapper > * {
-    width: 90%; } }
+    width: 90%; }
+  .add-todo input {
+    margin-bottom: 1rem; }
+  .add-todo #add-todo-head-input {
+    width: 100%; }
+  .add-todo #add-todo-text-input {
+    width: 75%; }
+  .text-wrapper {
+    width: 55%; }
+  .modal-content .model-btn button {
+    width: 50%; } }
