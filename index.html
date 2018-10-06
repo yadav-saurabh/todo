@@ -18,14 +18,15 @@
 
     <div class="todo-app">
       <h1 class="text-center">Todos</h1>
-      <div>
-        <input type="text" placeholder="add Todo" id="addTodoInput">
-        <button onclick="addTodo()" class="add-todo"> + </button>
+      <div class="add-todo">
+        <input type="text" placeholder="add Todo heading" id="add-todo-head-input">
+        <input type="text" placeholder="add Todo description" id="add-todo-text-input">
+        <button id="add-todo-btn"> + </button>
       </div>
-      <div>
-        <button click="filterTodo('all')">All</button>
-        <button click="filterTodo('completed')">Completed</button>
-        <button click="filterTodo('pending')">Pending</button>
+      <div class="todo-filter">
+        <button id="filter-todo-all" class="active">All</button>
+        <button id="filter-todo-completed">Completed</button>
+        <button id="filter-todo-pending">Pending</button>
       </div>
       <ul class="todo-list" id="todo">
       </ul>
@@ -33,9 +34,19 @@
   </div>
 
 
+  <!-- The Modal -->
+  <div id="my-modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span id="close">&times;</span>
+      <input type="text"  id="edit-todo-head">
+      <input type="text"  id="edit-todo-text">
+      <button id="update-todo-btn">update</button>
+    </div>
+  </div>
+
   <!-- scripts -->
-  <script  src="./dist/index.js" type="module"></script>
-  <!-- <script src="./dist/storage.js"></script> -->
+  <script src="./dist/index.js" type="module"></script>
 </body>
 
 </html>
