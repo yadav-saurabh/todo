@@ -1,28 +1,13 @@
-// input {
-//   // width: 100%;
-//   padding: 12px 20px;
-//   margin: 8px 0;
-//   border: 0;
-//   background-color: darken($white, .3);
-//   box-sizing: border-box;
-//   box-shadow: $box-shadow;
-//   border-radius: $bdr-radius;
-// }
-
-
-  
 input {
   margin-top: 5px;
   padding: 15px;
   background-color: #f3f2f5;
-  color: #A6A8BA;
+  color: #a6a8ba;
   border: none;
   border-radius: 20px;
   box-shadow: 0px 0px 0px 0px $primary;
   outline: none;
-  
   transition: box-shadow 0.3s;
-  
   &:focus {
     box-shadow: 0px 0px 0px 3px $primary;
   }
@@ -35,11 +20,9 @@ button {
   outline: none;
 }
 
-
 input[type="checkbox"] {
   opacity: 0;
   position: absolute;
-
   & + .checkbox {
     position: relative;
     display: inline-block;
@@ -47,11 +30,9 @@ input[type="checkbox"] {
     height: 25px;
     margin-right: 10px;
     vertical-align: middle;
-    border: 2px solid $gray-text;
+    border: 2px solid $secondary;
     border-radius: 50%;
-
     transition: border-color 0.3s;
-
     &:after {
       content: "";
       position: absolute;
@@ -61,16 +42,13 @@ input[type="checkbox"] {
       bottom: 4px;
       background-color: transparent;
       border-radius: 50%;
-
       transition: background-color 0.3s;
     }
   }
-
   &:checked + .checkbox {
-    border-color: $blue-color;
-
+    border-color: $primary;
     &:after {
-      background-color: $blue-color;
+      background-color: $primary;
     }
   }
 }

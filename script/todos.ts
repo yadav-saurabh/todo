@@ -10,12 +10,18 @@ export default class Todos {
    */
   createTodo = (obj): HTMLElement => {
     // creates a list element
-    const list = this.createElement("li", [{ type: 'id', handler: 'li' + obj.id }, { type:'className', handler: 'item' }]);
+    const list = this.createElement("li", [{ type: 'id', handler: 'li' + obj.id }, { type:'className', handler: obj.status === 1 ? 'completed item': 'item' }]);
     // creates a label element with a input and span as childs
     const label = this.createElement("label");
     label.append(
       this.createElement('input',[{ type: 'type', handler: 'checkbox' }, { type: "id", handler: "checkbox" + obj.id }, { type:'checked', handler: obj.status }], [{type: 'onchange', handler: 'changeTodoStatus'}]),
       this.createElement('span',[{ type: "className", handler: "checkbox" }])
+    );
+    // create a button wrapper
+    const btnWrapper = this.createElement('div', [{ type: "className", handler: 'btn-wrapper' }]);
+    btnWrapper.append(
+      this.createElement('button', [{ type: "id", handler: 'edit' + obj.id }], [{type: 'onclick', handler: 'editTodo'}]),
+      this.createElement('button', [{ type: "id", handler: 'delete' + obj.id }], [{type: 'onclick', handler: 'deleteTodo'}]),
     );
     // creates a wrapper div with h3, span and input as child
     const wrapper = this.createElement('div', [{ type: "className", handler: 'text-wrapper' }], [{ type: 'onclick', handler: 'changeTodoStatus' }]);    
@@ -24,12 +30,7 @@ export default class Todos {
       this.createElement('span',[{ type: "id", handler: 'todo-text' + obj.id }, { type: "innerHTML", handler: obj.text }])
     );
     // append the label and wrapper to the list element along with edit and delete buttons
-    list.append(
-      label,
-      this.createElement('button', [{ type: "id", handler: 'delete' + obj.id }], [{type: 'onclick', handler: 'deleteTodo'}]),
-      this.createElement('button', [{ type: "id", handler: 'edit' + obj.id }], [{type: 'onclick', handler: 'editTodo'}]),
-      wrapper
-    );
+    list.append(label, btnWrapper, wrapper);
 
     return list;
   };

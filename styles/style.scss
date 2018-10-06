@@ -1,6 +1,7 @@
 @import "variables";
 @import "global";
 
+
 /** applying border box to all elements **/
 
 * {
@@ -19,7 +20,7 @@ body {
   margin-top: 10%;
   width: 100%;
   & > * {
-    width: 80%;
+    width: $wrapper-width;
   }
 }
 
@@ -57,12 +58,11 @@ body {
     background: transparent;
     border-radius: 0;
     &.active {
-      color: blue;
-      border-bottom: 2px solid blue;
+      color: $primary;
+      border-bottom: 2px solid $primary;
     }
   }
 }
-
 
 .todo-list {
   margin: 0;
@@ -72,98 +72,117 @@ body {
 
 .item {
   position: relative;
-  padding: 0 30px;
-  margin:  0 -30px;
-  background-color: #fff;
-
+  margin: 1rem 0;
+  padding: 1rem 0;
+  background-color: $white;
+  cursor: pointer;
   label {
     position: absolute;
     top: 35%;
   }
-  & button {
-    position: absolute;
-    height: 100%;
-    width: 6%;
-    top: 0;
-    cursor: pointer;
-    background: transparent;
-    -webkit-mask: url(../assets/checked.svg) no-repeat 50% 50%;
-    mask: url(../assets/checked.svg) no-repeat 50% 50%;
-    &[id^="edit"] {
-      background-color: $primary;
-      right: 2rem;
-    }
-    &[id^="delete"] {
-      background-color: $secondary;
-      right: 0;
-    }
+  &:hover {
+    background-color: lighten($secondary, 30%);
   }
-  & img {
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-
 }
 
+.completed {
+  .text-wrapper{
+    text-decoration: line-through;
+    color: lighten($black, 30%);
+  }
+}
 
+.btn-wrapper {
+  float: right;
+  height: 100%;
+  width: 100% - $text-wrapper-width - 5%;
+  text-align: right;
+  & button {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0 5px;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 0;
+    &[id^="edit"] {
+      background: url(../assets/edit.svg) no-repeat;
+      background-size: 1.2rem;
+    }
+    &[id^="delete"] {
+      background: url(../assets/delete.svg) no-repeat;
+      background-size: 1.2rem;
+    }
+  }
+}
 
 .text-wrapper {
   position: relative;
   display: block;
-  margin: 0 45px;
+  width: $text-wrapper-width;
+  margin: 0 3rem;
   h3 {
     margin: 0;
   }
   span {
     display: block;
-    line-height: 25px;
-    color: #4c565e;
+    color: $secondary;
     padding: 2px 0;
     max-height: 100px;
     overflow: hidden;
-
-    transition: opacity 0.3s, max-height 0.2s;
   }
 }
-
-
-
 
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  z-index: 100; /* Sit on top */
+  padding-top: 10%; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: $black; /* Fallback color */
+  background-color: rgba($black, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: $white;
   margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
+  padding: 1.5rem;
   width: 80%;
+  border-radius: $bdr-radius;
+  /* The Close Button */
+  #close {
+    color: $black;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  & input {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .model-btn {
+    margin-top: 2rem;
+    text-align: right;
+    button {
+      width: 20%;
+      height: 2rem;
+    }
+    // float: left;
+  }
 }
 
-/* The Close Button */
-#close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-#close:hover,
-#close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+/* media query for mobile screen */
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    & > * {
+      width: $wrapper-width-sm;
+    }
+  }
 }
