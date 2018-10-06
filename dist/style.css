@@ -1,0 +1,200 @@
+input {
+  margin-top: 5px;
+  padding: 15px;
+  background-color: #f3f2f5;
+  color: #a6a8ba;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px 0px #0000ff;
+  outline: none;
+  transition: box-shadow 0.3s; }
+  input:focus {
+    box-shadow: 0px 0px 0px 3px #0000ff; }
+
+button {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px 0px #0000ff;
+  outline: none; }
+
+input[type="checkbox"] {
+  opacity: 0;
+  position: absolute; }
+  input[type="checkbox"] + .checkbox {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border: 2px solid #a6a8ba;
+    border-radius: 50%;
+    transition: border-color 0.3s; }
+    input[type="checkbox"] + .checkbox:after {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      background-color: transparent;
+      border-radius: 50%;
+      transition: background-color 0.3s; }
+  input[type="checkbox"]:checked + .checkbox {
+    border-color: #0000ff; }
+    input[type="checkbox"]:checked + .checkbox:after {
+      background-color: #0000ff; }
+
+/** applying border box to all elements **/
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #a6a8ba;
+  color: #000; }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+  width: 100%; }
+  .wrapper > * {
+    width: 60%; }
+
+.todo-app {
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 2rem; }
+
+.text-center {
+  text-align: center; }
+
+.add-todo {
+  margin-bottom: 2rem; }
+  .add-todo #add-todo-head-input {
+    width: 55%; }
+  .add-todo #add-todo-text-input {
+    width: 35%; }
+  .add-todo #add-todo-btn {
+    width: 2.5rem;
+    height: 2.5rem; }
+
+.todo-filter {
+  margin-bottom: 2rem; }
+  .todo-filter * {
+    width: 32%;
+    height: 2rem;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 0; }
+    .todo-filter *.active {
+      color: #0000ff;
+      border-bottom: 2px solid #0000ff; }
+
+.todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.item {
+  position: relative;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  background-color: #fff;
+  cursor: pointer; }
+  .item label {
+    position: absolute;
+    top: 35%; }
+  .item:hover {
+    background-color: #fcfcfd; }
+
+.completed .text-wrapper {
+  text-decoration: line-through;
+  color: #4d4d4d; }
+
+.btn-wrapper {
+  float: right;
+  height: 100%;
+  width: 15%;
+  text-align: right; }
+  .btn-wrapper button {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0 5px;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 0; }
+    .btn-wrapper button[id^="edit"] {
+      background: url(../assets/edit.svg) no-repeat;
+      background-size: 1.2rem; }
+    .btn-wrapper button[id^="delete"] {
+      background: url(../assets/delete.svg) no-repeat;
+      background-size: 1.2rem; }
+
+.text-wrapper {
+  position: relative;
+  display: block;
+  width: 80%;
+  margin: 0 3rem; }
+  .text-wrapper h3 {
+    margin: 0; }
+  .text-wrapper span {
+    display: block;
+    color: #a6a8ba;
+    padding: 2px 0;
+    max-height: 100px;
+    overflow: hidden; }
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 100;
+  /* Sit on top */
+  padding-top: 10%;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: #000;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */ }
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 1.5rem;
+  width: 80%;
+  border-radius: 5px;
+  /* The Close Button */ }
+  .modal-content #close {
+    color: #000;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer; }
+  .modal-content input {
+    width: 100%;
+    margin-bottom: 2rem; }
+  .modal-content .model-btn {
+    margin-top: 2rem;
+    text-align: right; }
+    .modal-content .model-btn button {
+      width: 20%;
+      height: 2rem; }
+
+/* media query for mobile screen */
+@media only screen and (max-width: 768px) {
+  .wrapper > * {
+    width: 90%; } }
