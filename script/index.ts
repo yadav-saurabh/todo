@@ -67,8 +67,7 @@ class TodoAPP {
   addTodo = () => {
     /* check if input value is vaild string and not empty */
     if (
-      !!common.addTodoTextInput.value.trim() &&
-      !!!!common.addTodoHeadInput.value.trim()
+      !!common.addTodoTextInput.value.trim() && !!common.addTodoHeadInput.value.trim()
     ) {
       todos.addTodo();
     } else {
